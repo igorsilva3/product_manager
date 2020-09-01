@@ -4,17 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="{% static 'bootstrap4/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.css' %}">
     {% block title %} {% endblock title %}
 </head>
 <body>
-    <div class='bg-dark'>
-        <div class='container'>
-            {% block content %} 
-            {% endblock content %}
-        </div>
-    </div>
-    <script src="{% static 'bootstrap4/js/bootstrap.bundle.js' %}"></script>
-    <script src="{% static 'bootstrap4/js/bootstrap.bundle.min.js' %}"></script>
+    <header>
+        <!-- Navbar fixa -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top   ">
+            <!-- Links -->
+            <a class="navbar-brand" href="{% url 'core:index' %}" title="Home">
+                <i class="fa fa-home">   Home</i>
+            </a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item justify-content-end ">
+                    <a class="nav-link" href="#" title="Add product">
+                        <i class="fa fa-plus"> </i>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" title="Categories">
+                      Categories
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                  </li>
+            </ul>
+            <form class="form-inline" action="#">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-success" type="submit" title="Search">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </nav>
+    </header>
+
+    <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
 </body>
 </html>
