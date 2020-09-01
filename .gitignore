@@ -1,4 +1,4 @@
 product_manager/__pycache__/*
 core/__pycache__/*
-core/migrate/__pycache__/*
+core/migrations/__pycache__/*
 secret_key.txt
