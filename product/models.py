@@ -4,7 +4,7 @@ from django.db import models
 class Categorie(models.Model):
     """Model definition for Categorie."""
     
-    name = models.CharField(max_length=60, blank=False)
+    name = models.CharField("Nome", max_length=60, blank=False)
     created_date = models.DateField(auto_now_add = True)
 
     class Meta:
@@ -21,10 +21,10 @@ class Categorie(models.Model):
 class Product(models.Model):
     """Model definition for Product."""
 
-    name = models.CharField(max_length=60, blank=False)
-    value = models.FloatField()
-    description = models.TextField(blank=True)
-    categorie =  models.CharField(max_length=60, blank=False)
+    name = models.CharField("Nome", max_length=60, blank=False)
+    value = models.FloatField("Valor")
+    description = models.TextField("Descrição", blank=True)
+    categorie =  models.CharField("Categoria", max_length=60, blank=False)
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
