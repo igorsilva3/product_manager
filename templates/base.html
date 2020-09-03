@@ -18,7 +18,7 @@
             </a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item justify-content-end ">
-                    <a class="nav-link" href="#" title="Add product">
+                    <a class="nav-link" href="{% url 'product:new' %}" title="Add product">
                         <i class="fa fa-plus"> </i>
                     </a>
                 </li>
@@ -41,6 +41,15 @@
             </form>
         </nav>
     </header>
+
+    <main>
+        
+        {% block main %} {% endblock main %}
+            
+        <div class="content">
+            {% block form %} {% endblock form %}
+        </div>
+    </main>
 
     <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
     <script src="{% static 'js/popper.min.js' %}"></script>
