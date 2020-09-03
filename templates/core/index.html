@@ -3,3 +3,21 @@
 {% block title %}
     <title>Home</title>
 {% endblock title %}
+
+
+{% block main %}
+    <div class="main" style="padding-top: 80px; margin-left: 10px;"> 
+    
+        {% for data in dataset %}
+    
+            <p>
+                <strong>Nome: </strong>{{ data.name }}<br>
+                <strong>Descrição: </strong>{{ data.description | linebreaksbr }}
+            </p>
+            <hr/> 
+    
+        {% endfor %} 
+    
+    </div> 
+{% endblock main %}
+    
