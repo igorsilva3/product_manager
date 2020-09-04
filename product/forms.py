@@ -15,4 +15,22 @@ class ProductForm(forms.ModelForm):
             'description',
             'categorie',
         ]
+        widgets = {
+            'name': forms.TextInput(
+                attrs={'class': 'form-control'}
+                ),
+            'value': forms.NumberInput(
+                attrs={
+                    'class': 'form-control', 
+                    'min': 0,
+                    }
+                ),
+            'description': forms.Textarea(
+                attrs={'class': 'form-control'}
+                ),
+            'categorie': forms.Select(
+                attrs={'class': 'form-control col-md-6'}
+                ),
+        }
+        
 

@@ -6,10 +6,13 @@
     
 {% block form %}
     <form  method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-
-        <input type="submit" value="Submit">
+        <div class="form-group col-md-6">
+            <table>
+                {% csrf_token %}
+                {{ form.as_table }}
+            </table>
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </div>
     </form>
 {% endblock form %}
     
