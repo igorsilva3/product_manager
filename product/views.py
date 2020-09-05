@@ -1,17 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import ProductForm
 
 # Create your views here.
-def new(request):
-    data = {}
+def new(request):  
     
-    form = ProductForm(request.POST or None) 
-    if form.is_valid(): 
-        form.save() 
-          
-    data['form']= form 
-    
-    return render(request, "product/new.html", data) 
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES) 
+        
+        if form.is_valid(): 
+            form.save() 
+            return redirect('core:index')
+    else:
+        form = ProductForm()
+
+    return render(request, "product/new.html", {'form': form}) 
 
 def update(request, pk):
     pass
