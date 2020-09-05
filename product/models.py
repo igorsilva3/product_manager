@@ -27,6 +27,7 @@ class Product(models.Model):
     value = models.FloatField("Value")
     description = models.TextField("Description", blank=True)
     categorie =  models.ForeignKey(Categorie, on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to='products', default='image_default.jpg')
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
@@ -38,3 +39,5 @@ class Product(models.Model):
     def __str__(self):
         """Unicode representation of Product."""
         return self.name
+
+
