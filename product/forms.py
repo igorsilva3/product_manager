@@ -14,6 +14,7 @@ class ProductForm(forms.ModelForm):
             'value',
             'description',
             'categorie',
+            'photo',
         ]
         widgets = {
             'name': forms.TextInput(
@@ -30,6 +31,9 @@ class ProductForm(forms.ModelForm):
                 ),
             'categorie': forms.Select(
                 attrs={'class': 'form-control col-md-6'}
+                ),
+            'photo': forms.ClearableFileInput(
+                attrs={'class': 'form-control-file'}
                 ),
         }
         

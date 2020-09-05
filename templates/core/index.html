@@ -6,16 +6,19 @@
 
 
 {% block main %}
-    <div class="main" style="padding-top: 80px; margin-left: 20px;"> 
+    <div class="main" style="padding-left: 2em;"> 
     
         {% for data in dataset %}
-    
-            <p>
-                <strong>Name: </strong>{{ data.name }}<br>
-                <strong>Value: </strong>U$ {{ data.value }}<br>
-                <strong>Description: </strong>{{ data.description | linebreaksbr }}
-            </p>
-            <hr/> 
+            
+            <div class="card" style="width: 18rem;" >
+                <img class="card-img-top" src="{{ data.photo.url }}" alt="Imagem de capa do card">
+                    
+                <div class="card-body">
+                    <h5 class="card-title">{{ data.name }}</h5>
+                    <p class="card-text">{{ data.description }}</p>
+                    <a href="#" class="btn btn-primary">Ver produto</a>
+                </div>
+            </div>
     
         {% endfor %} 
     

@@ -5,7 +5,7 @@
 {% endblock title %}
     
 {% block form %}
-    <form  method="post">
+    <form  method="post" enctype="multipart/form-data">
         <div class="form-group col-md-6">
             <table>
                 {% csrf_token %}

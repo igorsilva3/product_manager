@@ -3,7 +3,7 @@ from product.models import Product
 
 # Create your views here.
 def index(request):
-    data = {}
-    data['dataset'] = Product.objects.all()
+    if request.method == 'GET':
+        data = Product.objects.all()
     
-    return render(request, 'core/index.html', data)
+    return render(request, 'core/index.html', {'dataset': data})
