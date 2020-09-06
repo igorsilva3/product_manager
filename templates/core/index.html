@@ -4,24 +4,21 @@
     <title>Home</title>
 {% endblock title %}
 
-
-{% block main %}
-    <div class="main" style="padding-left: 2em;"> 
-    
+{% block content %}
+    <div class="card-columns">
         {% for data in dataset %}
-            
-            <div class="card" style="width: 18rem;" >
-                <img class="card-img-top" src="{{ data.photo.url }}" alt="Imagem de capa do card">
-                    
+            <div class="card border">
+                <img class="card-img-top" src="{{ data.photo.url }}">
                 <div class="card-body">
-                    <h5 class="card-title">{{ data.name }}</h5>
-                    <p class="card-text">{{ data.description }}</p>
-                    <a href="#" class="btn btn-primary">Ver produto</a>
+                    <h4 class="card-title">{{ data.name }}</h4>
+                    <p class="card-text text-black-50 text-justify">{{ data.description }}</p>
+                    <p class="card-text"><strong>Categorie: </strong>{{ data.categorie }}</p>
+                    <p class="card-text text-black-80">$ {{ data.value }}</p>
+                    <a href="#" class="btn btn-outline-success btn-lg fa fa-edit" title="Change"></a>
+                    <a href="#" class="btn btn-outline-danger btn-lg fa fa-trash" title="Delete"></a>
                 </div>
             </div>
-    
         {% endfor %} 
-    
-    </div> 
-{% endblock main %}
+    </div>
+{% endblock content %}
     
