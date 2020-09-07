@@ -1,22 +1,32 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProductForm
+from .models import Product
 
 # Create your views here.
 def new(request):  
-    
     if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES) 
-        
+        form = ProductForm(request.POST or None, request.FILES or None) 
+            
         if form.is_valid(): 
             form.save() 
             return redirect('core:index')
     else:
-        form = ProductForm()
+        form = ProductForm(request.POST or None, request.FILES or None) 
 
     return render(request, "product/new.html", {'form': form}) 
 
 def update(request, pk):
-    pass
+    product = get_object_or_404(Product, id=pk)  
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST or None, request.FILES or None, instance=product)
+        if form.is_valid():
+            form.save()
+            return redirect('core:index')
+    else:
+        form = ProductForm(request.POST or None, request.FILES or None, instance=product)
+        
+    return render(request, 'product/change.html', {'form': form})
 
 def delete(request, pk):
     pass
