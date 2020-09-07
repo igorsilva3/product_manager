@@ -26,7 +26,7 @@ class Product(models.Model):
     name = models.CharField("Name", max_length=60, blank=False)
     value = models.FloatField("Value")
     description = models.TextField("Description", blank=True)
-    categorie =  models.ForeignKey(Categorie, on_delete=models.CASCADE)
+    categorie =  models.ForeignKey(Categorie, on_delete=models.CASCADE, blank=False)
     photo = models.ImageField(upload_to='products', default='image_default.jpg')
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
