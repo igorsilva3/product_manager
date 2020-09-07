@@ -18,22 +18,39 @@ class ProductForm(forms.ModelForm):
         ]
         widgets = {
             'name': forms.TextInput(
-                attrs={'class': 'form-control'}
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Name',
+                    'id': 'inputName'
+                    }
                 ),
             'value': forms.NumberInput(
                 attrs={
                     'class': 'form-control', 
-                    'min': 0,
+                    'placeholder': 'Value',
+                    'id': 'inputValue',
+                    'min': '0',
                     }
                 ),
             'description': forms.Textarea(
-                attrs={'class': 'form-control'}
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Description',
+                    'id': 'inputDescription',
+                    'rows': '3',
+                    }
                 ),
             'categorie': forms.Select(
-                attrs={'class': 'form-control col-md-6'}
+                attrs={
+                    'class': 'form-control',
+                    'id': 'inputCategorie',
+                    }
                 ),
             'photo': forms.ClearableFileInput(
-                attrs={'class': 'form-control-file'}
+                attrs={
+                    'class': 'form-control-file',
+                    'id': 'inputPhoto',
+                    }
                 ),
         }
         

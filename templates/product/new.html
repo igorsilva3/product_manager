@@ -4,15 +4,36 @@
     <title>Add product</title>
 {% endblock title %}
     
-{% block form %}
-    <form  method="post" enctype="multipart/form-data">
-        <div class="form-group col-md-6">
-            <table>
-                {% csrf_token %}
-                {{ form.as_table }}
-            </table>
+{% block content %}
+    <div class="content-form" style="width: 50%;">
+        <form  method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="inputName">Name</label>
+                    {{ form.name }}
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputValue">Value</label>
+                    {{ form.value }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputDescription">Description</label>
+                {{ form.description }}
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputCategorie">Categorie</label>
+                    {{ form.categorie }}
+                </div>
+                <div class="form-group col-md-8">
+                  <label for="inputPhoto">Photo</label>
+                  {{ form.photo }}
+                </div>
+            </div>
             <input class="btn btn-primary" type="submit" value="Submit">
-        </div>
-    </form>
-{% endblock form %}
+        </form>
+    </div>
+{% endblock content %}
     
