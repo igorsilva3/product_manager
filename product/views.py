@@ -29,4 +29,10 @@ def update(request, pk):
     return render(request, 'product/change.html', {'form': form})
 
 def delete(request, pk):
-    pass
+    product = get_object_or_404(Product, id=pk)  
+    
+    if request.method == 'POST':
+        product.delete()
+        return redirect('core:index')
+    
+    return render(request, 'product/delete.html', {'product': product})
