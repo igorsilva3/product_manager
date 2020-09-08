@@ -3,5 +3,4 @@ core/__pycache__/*
 core/migrations/__pycache__/*
 product/__pycache__/*
 product/migrations/__pycache__/*
-media/products/*
 secret_key.txt
