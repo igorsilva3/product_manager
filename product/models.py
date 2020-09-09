@@ -1,5 +1,4 @@
 from django.db import models
-from search.models import ProductManager
 
 # Create your models here.
 class Categorie(models.Model):
@@ -19,6 +18,13 @@ class Categorie(models.Model):
         """Unicode representation of Categorie."""
         return self.name
 
+class ProductManager(models.Manager):
+    def search(self, query):
+        return self.get_queryset().filter(
+            models.Q(name__icontains=query) | \
+            models.Q(description__icontains=query) | \
+            models.Q(categorie__name__icontains=query)
+        )
 
 class Product(models.Model):
     """Model definition for Product."""
