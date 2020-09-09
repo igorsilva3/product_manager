@@ -7,8 +7,9 @@ class CategorieAdmin(admin.ModelAdmin):
     ordering = ['name']
     
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'value', 'categorie', 'created_date', 'updated_date')
+    list_display = ('name', 'value', 'description', 'categorie', 'created_date', 'updated_date')
     ordering = ['name']
+    search_fields = ['name', 'categorie__name', 'description']
 
 admin.site.register(Categorie, CategorieAdmin)
 admin.site.register(Product, ProductAdmin)
