@@ -4,17 +4,22 @@ from product.models import Product
 # Create your views here.
 def index(request):
     if request.method == 'GET':
-        # Checks if you have any products registered in the database, returning valores booleans
-        product_exists = Product.objects.exists()
+        # If there is result, returns all products registered
+        product = Product.objects.all().order_by('name')
         
         # If there is no result, returns to the page not_found_products
-        if product_exists == False:
+        if not product.exists():
             return render(request, 'core/not_found_products.html')
         
-        # If there is result, returns all products registered
-        product_exists = Product.objects.all().order_by('name')
+    return render(request, 'core/index.html', {'dataset': product})
     
-    return render(request, 'core/index.html', {'dataset': product_exists})
-    
+def search(request):
+    if request.method == 'GET':
+        query = request.GET.get('q')
+        data = Product.objects.search(query)
         
-    
+        # Checks if the query did not return something and return page 404
+        if not data.exists():
+            return render(request, 'core/not_found_products.html')
+
+    return render(request, 'core/index.html', {'dataset': data})
