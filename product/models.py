@@ -1,4 +1,5 @@
 from django.db import models
+from search.models import ProductManager
 
 # Create your models here.
 class Categorie(models.Model):
@@ -30,6 +31,8 @@ class Product(models.Model):
     photo = models.ImageField(upload_to='products', default='image_default.jpg')
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
+    
+    objects = ProductManager()
 
     class Meta:
         """Meta definition for Product."""
