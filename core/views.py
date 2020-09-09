@@ -12,7 +12,7 @@ def index(request):
             return render(request, 'core/not_found_products.html')
         
         # If there is result, returns all products registered
-        product_exists = Product.objects.all()
+        product_exists = Product.objects.all().order_by('name')
     
     return render(request, 'core/index.html', {'dataset': product_exists})
     
