@@ -18,14 +18,6 @@ class Categorie(models.Model):
         """Unicode representation of Categorie."""
         return self.name
 
-class ProductManager(models.Manager):
-    def search(self, query):
-        return self.get_queryset().filter(
-            models.Q(name__icontains=query) | \
-            models.Q(description__icontains=query) | \
-            models.Q(categorie__name__icontains=query)
-        )
-
 class Product(models.Model):
     """Model definition for Product."""
 
@@ -37,8 +29,6 @@ class Product(models.Model):
     photo = models.ImageField(upload_to='products', default='image_default.jpg')
     created_date = models.DateField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
-    
-    objects = ProductManager()
 
     class Meta:
         """Meta definition for Product."""

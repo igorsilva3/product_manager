@@ -9,11 +9,23 @@ def new(request):
             
         if form.is_valid(): 
             form.save() 
-            return redirect('core:index')
+            return redirect('product:index')
     else:
-        form = ProductForm(request.POST or None, request.FILES or None) 
-
+        form = ProductForm(request.POST or None, request.FILES or None)
+        
     return render(request, "product/new.html", {'form': form}) 
+
+def list_product(request):
+    if request.method == 'GET':
+        product = Product.objects.exists()
+        
+        if not product:
+            return render(request, 'product/not_found_products.html')
+        
+        # If there is result, returns all products registered
+        product = Product.objects.all().order_by('name')
+        
+    return render(request, 'product/list_product.html', {'dataset': product})
 
 def update(request, pk):
     product = get_object_or_404(Product, id=pk)  
@@ -22,7 +34,7 @@ def update(request, pk):
         form = ProductForm(request.POST or None, request.FILES or None, instance=product)
         if form.is_valid():
             form.save()
-            return redirect('core:index')
+            return redirect('product:index')
     else:
         form = ProductForm(request.POST or None, request.FILES or None, instance=product)
         
@@ -33,6 +45,6 @@ def delete(request, pk):
     
     if request.method == 'POST':
         product.delete()
-        return redirect('core:index')
+        return redirect('product:index')
     
     return render(request, 'product/delete.html', {'product': product})
