@@ -9,7 +9,7 @@
         {% csrf_token %}
         <strong>You really sure you want to delete? </strong>
         <button class="btn btn-danger" type="submit"> Yes</button>
-        <a href="{% url 'core:index' %}" class=" btn btn-secondary"> Cancel</a>
+        <a href="{% url 'product:index' %}" class=" btn btn-secondary"> Cancel</a>
     </form>
 {% endblock content %}
     
