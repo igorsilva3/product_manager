@@ -7,14 +7,15 @@
 
 {% block content %}
     <div class="card-columns">
-        {% for product in products %}
+        {% for product in dataset %}
             <div class="card border">
                 <img class="card-img-top" src="{{ product.photo.url }}">
                 <div class="card-body">
                     <h4 class="card-title">{{ product.name }}</h4>
                     <p class="card-text text-black-50 text-justify">{{ product.description|linebreaksbr }}</p>
                     <p class="card-text"><strong>Categorie: </strong>{{ product.categorie }}</p>
-                    <p class="card-text text-black-80">$ {{ product.value }}</p>
+                    <p class="card-text"><strong>Brand: </strong>{{ product.brand }}</p>
+                    <p class="card-text text-muted">$ {{ product.value }}</p>
                     <a href="{% url 'product:change' product.id %}" class="btn btn-outline-success btn-lg fa fa-edit" title="Change"></a>
                     <a href="{% url 'product:delete' product.id %}" class="btn btn-outline-danger btn-lg fa fa-trash" title="Delete"></a>
                 </div>
