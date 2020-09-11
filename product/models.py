@@ -23,6 +23,7 @@ class Product(models.Model):
 
     id = models.AutoField(primary_key=True)
     name = models.CharField("Name", max_length=60, blank=False)
+    brand = models.CharField("Brand", max_length=60, blank=True)
     value = models.FloatField("Value")
     description = models.TextField("Description", blank=True)
     categorie =  models.ForeignKey(Categorie, on_delete=models.CASCADE, blank=False)

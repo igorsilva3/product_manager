@@ -15,6 +15,7 @@ class ProductForm(forms.ModelForm):
             'description',
             'categorie',
             'photo',
+            'brand',
         ]
         widgets = {
             'name': forms.TextInput(
@@ -50,6 +51,13 @@ class ProductForm(forms.ModelForm):
                 attrs={
                     'class': 'form-control-file',
                     'id': 'inputPhoto',
+                    }
+                ),
+            'brand': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Brand',
+                    'id': 'inputBrand'
                     }
                 ),
         }
