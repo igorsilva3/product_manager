@@ -1,15 +1,47 @@
 {% extends 'base.html' %}
 
+{% load widget_tweaks %}
+
 {% block title %}
     <title>Results search</title>
 {% endblock title %}
 
+
+{% block filters %}
+    <form method="get">
+        <div class="well">
+            <h4 style="margin-top: 0">Filter</h4>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="id_categorie">Categorie</label>
+                    {% render_field dataset.form.categorie class="form-control" title="Categorie" %}
+                </div>
+                <div class="form-group col-md-7">
+                    <label for="id_name">Name</label>
+                    {% render_field dataset.form.name class="form-control" placeholder="Name" title="Name product" %}
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-success" type="submit" title="Search">
+            <i class="fa fa-search"><span>  Search</span></i>
+        </button>
+    </form>
+{% endblock filters %}
+    
+
 {% block content %}
-    <p class="h5">
+    <p class="h4" style="padding-bottom: 10px;">
         Results search:
     </p>
+    
+    {% if not dataset.qs  %}
+        <p class="h4 text-info text-center">
+            Not Found Products
+        </p>
+    {% endif %}
+        
     <div class="card-columns">
-        {% for product in dataset %}
+        {% for product in dataset.qs %}
             <div class="card border">
                 <img class="card-img-top" src="{{ product.photo.url }}">
                 <div class="card-body">
