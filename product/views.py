@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import ProductForm
 from .models import Product
+from django.core.paginator import Paginator
 
 # Create your views here.
 def new(request):  
@@ -24,8 +25,13 @@ def list_product(request):
         
         # If there is result, returns all products registered
         product = Product.objects.all().order_by('name')
+        page = request.GET.get('page', 1)
         
-    return render(request, 'product/list_product.html', {'dataset': product})
+        paginator = Paginator(product, 3)
+        
+        product = paginator.page(page)
+        
+    return render(request, 'product/list_product.html', {'products': product})
 
 def update(request, pk):
     product = get_object_or_404(Product, id=pk)  
