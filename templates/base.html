@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,27 +15,30 @@
             <!-- Navbar fixa -->
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top   ">
                 <!-- Links -->
-                <a class="navbar-brand" href="{% url 'core:index' %}" title="Home">
+                <a class="navbar-brand" href="{% url 'product:index' %}" title="Home">
                     <i class="fa fa-home">   Home</i>
                 </a>
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item justify-content-end ">
-                        <a class="nav-link" href="{% url 'product:new' %}" title="Add product">
-                            <i class="fa fa-plus"> </i>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'product:new' %}" title="Add product">
+                            <i class="fa fa-plus"><span>  Add product</span></i>
                         </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'search:search_products' %}" title="Search for products">
+                            <i class="fa fa-search"><span>  Search</span></i>
+                        </a> 
                     </li>
                 </ul>
-                <form method="GET" class="form-inline" action="{% url 'core:search' %}">
-                    <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-success" type="submit" title="Search">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </form>
             </nav>
         </header>
     
         <main>
             <div class="content" style="padding-top: 80px; width: 100%; height: 100%;">
+                <div style="padding-bottom: 20px; width: 50%;">
+                    {% block filters %}{% endblock filters %}
+                </div>
+
                 {% block content %} {% endblock content %}
             </div>
         </main>
