@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load bootstrap_pagination %}
+
 {% block title %}
     <title>Home</title>
 {% endblock title %}
@@ -7,7 +9,7 @@
 
 {% block content %}
     <div class="card-columns">
-        {% for product in dataset %}
+        {% for product in products %}
             <div class="card border">
                 <img class="card-img-top" src="{{ product.photo.url }}">
                 <div class="card-body">
@@ -23,42 +25,8 @@
         {% endfor %} 
     </div>
 
-    <!-- Pagination -->
-    <nav>
-        <ul class="pagination justify-content-center">
-            
-            {# Checks if a previous page exists #}
-            {% if products.has_previous %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ products.previous_page_number }}">Previous</a>
-                </li>
-            {% endif %}
-            
-            {# Block for to load all pages  #}
-            {% for page in products.paginator.page_range %}
+    {% bootstrap_paginate products range=3 extra_pagination_classes="justify-content-center " %}
 
-                {# Checks if the number of the current page is the same as the link, #}
-                {# highlighting the current page number #}
-                {% if products.number == page %}
-                    <li class="page-item active">
-                        <a class="page-link" href="?page={{ page }}">{{ page }}</a>
-                    </li>
-                {% else %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ page }}">{{ page }}</a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-                
-            {# Checks if a next page exists #}
-            {% if products.has_next %}
-                <li class="page-item">
-                    <a class="page-link" href="?page={{ products.next_page_number }}">Next</a>
-                </li>
-            {% endif %}
-            
-        </ul>
-    </nav>
 {% endblock content %}
     
     

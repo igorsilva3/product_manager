@@ -6,7 +6,6 @@
     <title>Results search</title>
 {% endblock title %}
 
-
 {% block filters %}
     <form method="get">
         <div class="well">
@@ -29,10 +28,12 @@
         <button class="btn btn-success" type="submit" title="Search">
             <i class="fa fa-search"><span>  Search</span></i>
         </button>
+        <a class="btn btn-warning " href="{% url 'search:search_products' %}" title="Clear filter">
+            <i class="fa fa-filter"><span>  Clear filter</span></i>
+        </a>
     </form>
 {% endblock filters %}
     
-
 {% block content %}
     <p class="h4" style="padding-bottom: 10px;">
         Results search:
@@ -42,23 +43,9 @@
         <p class="h4 text-info text-center">
             Not Found Products
         </p>
+    {% else %}
+        {% include 'product/list_product.html' %}
     {% endif %}
-        
-    <div class="card-columns">
-        {% for product in dataset.qs %}
-            <div class="card border">
-                <img class="card-img-top" src="{{ product.photo.url }}">
-                <div class="card-body">
-                    <h4 class="card-title">{{ product.name }}</h4>
-                    <p class="card-text text-black-50 text-justify">{{ product.description|linebreaksbr }}</p>
-                    <p class="card-text"><strong>Categorie: </strong>{{ product.categorie }}</p>
-                    <p class="card-text"><strong>Brand: </strong>{{ product.brand }}</p>
-                    <p class="card-text text-muted">$ {{ product.value }}</p>
-                    <a href="{% url 'product:change' product.id %}" class="btn btn-outline-success btn-lg fa fa-edit" title="Change"></a>
-                    <a href="{% url 'product:delete' product.id %}" class="btn btn-outline-danger btn-lg fa fa-trash" title="Delete"></a>
-                </div>
-            </div>
-        {% endfor %} 
-    </div>
+    
 {% endblock content %}
     
