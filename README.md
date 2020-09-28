@@ -12,9 +12,32 @@
 
 > This is a Django project. A product manager, where it has the register of product, updates of data product, the exclusion of product and th listing of all products added. :stars:
 
-### Pages screenshot
+## :pushpin: Table of Contents
+* [Pages screenshot](#pages-screenshot)
+* [Technologies](#technologies)
+* [License](#license)
+
+
+## Pages screenshot
 
 | ![Page Home](https://i.imgur.com/6MKi77x.jpg)           | ![Page Add Product](https://i.imgur.com/FdLVD8M.jpg) | 
 |---------------------------------------------------------|------------------------------------------------------|
 | ![Page Update Product](https://i.imgur.com/XtTbDAE.jpg) | ![Page Search](https://i.imgur.com/BN2mVCp.jpg)      | 
 
+
+## Technologies
+* [Python](https://www.python.org/) 
+* [Django Framework](https://www.djangoproject.com/)
+* [Django-Filter](https://django-filter.readthedocs.io/en/stable/)
+* [Django-Boostrap-Pagination](https://pypi.org/project/django-bootstrap-pagination/)
+* [Django-Widget-Tweaks](https://pypi.org/project/django-widget-tweaks/)
+* [Pillow](https://pillow.readthedocs.io/en/stable/)
+
+## License :closed_book:
+
+Released in 2020 License :closed_book:
+
+Made with :heart: by [Igor Silva](https://github.com/igorsilva3).
+This project is under the [MIT license](./LICENSE).
+
+Give a :star: if this project helped you!
