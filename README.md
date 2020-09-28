@@ -15,6 +15,7 @@
 ## :pushpin: Table of Contents
 * [Pages screenshot](#pages-screenshot)
 * [Technologies](#technologies)
+* [Prerequisites](#prerequisites)
 * [License](#license)
 
 
