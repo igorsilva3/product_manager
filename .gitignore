@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Django my project
+products/
+migrations/
+
+secret_key.txt
