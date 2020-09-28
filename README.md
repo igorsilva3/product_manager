@@ -28,12 +28,49 @@
 ## Technologies
 * [Python](https://www.python.org/) 
 * [Django Framework](https://www.djangoproject.com/)
+* [Postgresql](https://www.postgresql.org/)
 * [Django-Filter](https://django-filter.readthedocs.io/en/stable/)
 * [Django-Boostrap-Pagination](https://pypi.org/project/django-bootstrap-pagination/)
 * [Django-Widget-Tweaks](https://pypi.org/project/django-widget-tweaks/)
 * [Pillow](https://pillow.readthedocs.io/en/stable/)
 
-## License :closed_book:
+## Prerequisites
+* Python 3.7.1+
+* Postgresql
+
+### Creation of virtual environment
+```bash
+# Installing virtualenv for Python
+$ pip install virtualenv
+
+# Creating your virtual environment
+$ python3 -m virtualenv name-of-your-virtual-environment
+
+# Activating virtual environment
+$ source name-of-your-virtual-environment/bin/activate
+```
+
+### Installing dependencies
+```bash
+# Enter in folder of project
+$ cd product_manager/
+``` 
+Make sure what the virtual environment this activated
+```bash
+# Installing requirements
+(name-of-your-virtual-environment) $ pip install -r requirements.txt
+``` 
+
+### Migrating database
+```bash
+# Building the database tables and fields
+(name-of-your-virtual-environment) $ python manage.py makemigrations
+
+# Migrating for database
+(name-of-your-virtual-environment) $ python manage.py migrate
+``` 
+
+## License
 
 Released in 2020 License :closed_book:
 
