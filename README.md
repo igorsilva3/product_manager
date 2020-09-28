@@ -1,13 +1,10 @@
 <h1 align="center">Product Manager</h1>
 <p align="center">
   	<img alt="Repository size" src="https://img.shields.io/github/repo-size/igorsilva3/product_manager">
-	
   	<a href="https://github.com/igorsilva3/product_manager/commits/master">
     	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/igorsilva3/product_manager">
   	</a> 
-	
   	<img alt="License" src="https://img.shields.io/github/license/igorsilva3/product_manager">
-	
   	<a href="https://github.com/igorsilva3/product_manager/stargazers">
     	<img alt="Stargazers" src="https://img.shields.io/github/stars/igorsilva3/product_manager">
   	</a>
