@@ -16,7 +16,6 @@
 
 <!-- Table of contents -->
 ## :pushpin: Table of Contents
-- [:pushpin: Table of Contents](#pushpin-table-of-contents)
 - [Pages screenshot](#pages-screenshot)
 - [Technologies](#technologies)
 - [Prerequisites](#prerequisites)
