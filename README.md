@@ -42,8 +42,8 @@
 
 <!-- Prerequisites -->
 ## Prerequisites
-* Python 3.7.1+
-* Postgresql
+* Python 3.7.1+ installed in your machine
+* Postgresql installed in your machine
 
 - #### Creation of virtual environment
 	```bash
