@@ -2,7 +2,7 @@ Django==2.2.18
 django-bootstrap-pagination==1.7.1
 django-filter==2.3.0
 django-widget-tweaks==1.4.8
-Pillow==8.1.1
+Pillow==9.0.1
 psycopg2==2.8.5
 pytz==2020.1
 sqlparse==0.3.1
